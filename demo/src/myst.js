@@ -22,13 +22,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.directives = exports.roles = exports.plugins = exports.MyST = void 0;
+exports.defaultOptions = void 0;
+const markdown_it_1 = __importDefault(require("markdown-it"));
 const plugins = __importStar(require("./plugins"));
-exports.plugins = plugins;
-const roles_1 = require("./roles");
-Object.defineProperty(exports, "roles", { enumerable: true, get: function () { return roles_1.roles; } });
 const directives_1 = require("./directives");
-Object.defineProperty(exports, "directives", { enumerable: true, get: function () { return directives_1.directives; } });
-var myst_1 = require("./myst");
-Object.defineProperty(exports, "MyST", { enumerable: true, get: function () { return __importDefault(myst_1).default; } });
-//# sourceMappingURL=index.js.map
+const roles_1 = require("./roles");
+exports.defaultOptions = {
+    directives: directives_1.directives,
+    roles: roles_1.roles,
+    math: true,
+    markdownit: { html: false },
+};
+function MyST(opts = exports.defaultOptions) {
+    const tokenizer = markdown_it_1.default('commonmark', opts.markdownit);
+    if (opts.math)
+        tokenizer.use(plugins.math);
+    tokenizer.use(plugins.blocks);
+    tokenizer.use(plugins.directives(directives_1.directives));
+    tokenizer.use(plugins.roles(roles_1.roles));
+    return tokenizer;
+}
+exports.default = MyST;
+//# sourceMappingURL=myst.js.map

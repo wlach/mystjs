@@ -202,6 +202,16 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-markdown-it-myst">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     markdown-it-myst
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-a-new-directive">
    Creating a New Directive
   </a>
@@ -281,14 +291,12 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>src/
 ├── blocks.ts           <span class="c1"># Block level rules</span>
 ├── directives          <span class="c1"># All directives</span>
-│   ├── index.ts
-│   ├── default.ts      <span class="c1"># A dictionary of the default directives</span>
+│   ├── index.ts        <span class="c1"># { plugin, directives } a dictionary of the default directives</span>
 │   ├── admonition.ts   <span class="c1"># Admonition directives</span>
 │   ├── figure.ts       <span class="c1"># Figure directive</span>
 │   └── ...
 └── roles               <span class="c1"># All roles</span>
-    ├── index.ts
-    ├── default.ts      <span class="c1"># A dictionary of the default roles</span>
+    ├── index.ts        <span class="c1"># { plugin, roles }, a dictionary of the default roles</span>
     ├── html.ts         <span class="c1"># HTML roles, like abbr, sub, sup ...</span>
     ├── math.ts         <span class="c1"># Math role</span>
     └── ...
@@ -296,6 +304,29 @@
 ├── state.ts            <span class="c1"># Handles reference numbering</span>
 └── utils.ts
 </pre></div>
+</div>
+<div class="section" id="using-markdown-it-myst">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">markdown-it-myst</span></code><a class="headerlink" href="#using-markdown-it-myst" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to use the library, you can use the <code class="docutils literal notranslate"><span class="pre">MyST</span></code> wrapper,
+which creates a <code class="docutils literal notranslate"><span class="pre">MarkdownIt</span></code> tokenizer for you:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">MyST</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;markdown-it-myst&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">myst</span> <span class="o">=</span> <span class="nx">MyST</span><span class="p">();</span> <span class="c1">// Can override options here!</span>
+<span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">myst</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">myString</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, you can use this with other packages in a more granular way:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">plugins</span><span class="p">,</span> <span class="nx">roles</span><span class="p">,</span> <span class="nx">directives</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;markdown-it-myst&#39;</span><span class="p">;</span>
+
+<span class="c1">// Somewhere create a markdownit tokenizer:</span>
+<span class="kd">const</span> <span class="nx">tokenizer</span> <span class="o">=</span> <span class="nx">MarkdownIt</span><span class="p">(</span><span class="s1">&#39;commonmark&#39;</span><span class="p">);</span>
+
+<span class="c1">// Later:</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">math</span><span class="p">);</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">blocks</span><span class="p">);</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">directives</span><span class="p">(</span><span class="nx">directives</span><span class="p">));</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">roles</span><span class="p">(</span><span class="nx">roles</span><span class="p">));</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="creating-a-new-directive">
 <h2>Creating a New Directive<a class="headerlink" href="#creating-a-new-directive" title="Permalink to this headline">¶</a></h2>

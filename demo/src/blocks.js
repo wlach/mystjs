@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.blocksPlugin = void 0;
+exports.plugin = void 0;
 const utils_1 = require("markdown-it/lib/common/utils");
 const state_1 = require("./state");
 // % A comment
@@ -67,7 +67,7 @@ function blocks(state, startLine, endLine, silent) {
     if (state.sCount[startLine] - state.blkIndent >= 4)
         return false;
     const str = state.src.slice(pos, maximum);
-    return blockPlugins.reduce((complete, plugin) => (complete || plugin(state, startLine, str, silent)), false);
+    return blockPlugins.reduce((complete, plug) => (complete || plug(state, startLine, str, silent)), false);
 }
 const renderTarget = (tokens, idx, opts, env) => {
     var _a, _b;
@@ -122,7 +122,7 @@ const updateLinkHrefs = (state) => {
     }
     return true;
 };
-function blocksPlugin(md) {
+function plugin(md) {
     md.block.ruler.before('hr', 'myst_blocks', blocks, { alt: ['paragraph', 'reference', 'blockquote', 'list', 'footnote_def'] });
     md.core.ruler.after('block', 'add_block_titles', addBlockTitles);
     md.core.ruler.after('inline', 'update_link_hrefs', updateLinkHrefs);
@@ -130,5 +130,5 @@ function blocksPlugin(md) {
     md.renderer.rules.myst_comment = renderComment;
     md.renderer.rules.myst_block_break = renderBlockBreak;
 }
-exports.blocksPlugin = blocksPlugin;
+exports.plugin = plugin;
 //# sourceMappingURL=blocks.js.map

@@ -19,7 +19,8 @@ const RefFormatter = {
     code(id, num) { return `Code ${num}`; },
 };
 function getStateEnv(state) {
-    const env = state.env;
+    var _a;
+    const env = (_a = state.env) !== null && _a !== void 0 ? _a : {};
     if (!env.targets)
         env.targets = {};
     if (!env.numbering) {

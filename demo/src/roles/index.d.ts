@@ -1,3 +1,4 @@
-import MarkdownIt from 'markdown-it';
-import { Roles } from './types';
-export declare const rolePlugin: (roles: Roles) => (md: MarkdownIt) => void;
+import { Role, Roles } from './types';
+export declare const roles: Record<string, Role>;
+export { plugin } from './plugin';
+export type { Role, Roles };
