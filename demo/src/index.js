@@ -18,9 +18,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.directives = exports.roles = exports.plugins = exports.MyST = void 0;
 const plugins = __importStar(require("./plugins"));
@@ -30,5 +27,5 @@ Object.defineProperty(exports, "roles", { enumerable: true, get: function () { r
 const directives_1 = require("./directives");
 Object.defineProperty(exports, "directives", { enumerable: true, get: function () { return directives_1.directives; } });
 var myst_1 = require("./myst");
-Object.defineProperty(exports, "MyST", { enumerable: true, get: function () { return __importDefault(myst_1).default; } });
+Object.defineProperty(exports, "MyST", { enumerable: true, get: function () { return myst_1.MyST; } });
 //# sourceMappingURL=index.js.map

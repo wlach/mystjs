@@ -22,7 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultOptions = void 0;
+exports.MyST = exports.defaultOptions = void 0;
 const markdown_it_1 = __importDefault(require("markdown-it"));
 const plugins = __importStar(require("./plugins"));
 const directives_1 = require("./directives");
@@ -42,5 +42,5 @@ function MyST(opts = exports.defaultOptions) {
     tokenizer.use(plugins.roles(roles_1.roles));
     return tokenizer;
 }
-exports.default = MyST;
+exports.MyST = MyST;
 //# sourceMappingURL=myst.js.map

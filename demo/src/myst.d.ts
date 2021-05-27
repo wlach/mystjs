@@ -8,4 +8,5 @@ export declare type Options = {
     markdownit?: MarkdownIt.Options;
 };
 export declare const defaultOptions: Options;
-export default function MyST(opts?: Options): MarkdownIt;
+declare function MyST(opts?: Options): MarkdownIt;
+export { MyST };
