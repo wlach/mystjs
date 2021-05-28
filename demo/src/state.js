@@ -12,11 +12,21 @@ var TargetKind;
     TargetKind["code"] = "code";
 })(TargetKind = exports.TargetKind || (exports.TargetKind = {}));
 const RefFormatter = {
-    ref(id) { return `[${id}]`; },
-    eq(id, num) { return `Eq ${num}`; },
-    fig(id, num) { return `Fig ${num}`; },
-    table(id, num) { return `Table ${num}`; },
-    code(id, num) { return `Code ${num}`; },
+    ref(id) {
+        return `[${id}]`;
+    },
+    eq(id, num) {
+        return `Eq ${num}`;
+    },
+    fig(id, num) {
+        return `Fig ${num}`;
+    },
+    table(id, num) {
+        return `Table ${num}`;
+    },
+    code(id, num) {
+        return `Code ${num}`;
+    }
 };
 function getStateEnv(state) {
     var _a;
@@ -28,7 +38,7 @@ function getStateEnv(state) {
             eq: 0,
             fig: 0,
             table: 0,
-            code: 0,
+            code: 0
         };
     }
     if (!state.env)
@@ -66,7 +76,7 @@ function newTarget(state, name, kind) {
         name: useName,
         defaultReference: RefFormatter[kind](id, number),
         kind,
-        number,
+        number
     };
     env.targets[useName] = target;
     return target;

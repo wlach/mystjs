@@ -67,26 +67,26 @@ function blocks(state, startLine, endLine, silent) {
     if (state.sCount[startLine] - state.blkIndent >= 4)
         return false;
     const str = state.src.slice(pos, maximum);
-    return blockPlugins.reduce((complete, plug) => (complete || plug(state, startLine, str, silent)), false);
+    return blockPlugins.reduce((complete, plug) => complete || plug(state, startLine, str, silent), false);
 }
 const renderTarget = (tokens, idx, opts, env) => {
     var _a, _b;
     const ref = (_a = tokens[idx].attrGet('id')) !== null && _a !== void 0 ? _a : '';
     const id = (_b = env.targets[ref]) === null || _b === void 0 ? void 0 : _b.id;
     // TODO: This should be better as part of the next element, and then hide this
-    return (`<span id="${id}"></span>\n`);
+    return `<span id="${id}"></span>\n`;
 };
 const renderComment = (tokens, idx) => {
     var _a;
     const comment = (_a = tokens[idx].attrGet('comment')) !== null && _a !== void 0 ? _a : '';
-    return (`<!-- ${utils_1.escapeHtml(comment)} -->\n`);
+    return `<!-- ${utils_1.escapeHtml(comment)} -->\n`;
 };
 const renderBlockBreak = (tokens, idx) => {
     const { metadata } = tokens[idx].meta;
     console.log('Not sure what to do with metadata for block break:', metadata);
-    return ('<!-- Block Break -->\n');
+    return '<!-- Block Break -->\n';
 };
-const addBlockTitles = (state) => {
+const addBlockTitles = state => {
     var _a;
     const { tokens } = state;
     const env = state_1.getStateEnv(state);
@@ -102,13 +102,13 @@ const addBlockTitles = (state) => {
     }
     return true;
 };
-const updateLinkHrefs = (state) => {
+const updateLinkHrefs = state => {
     const { tokens } = state;
     const env = state_1.getStateEnv(state);
     for (let index = 0; index < tokens.length; index += 1) {
         const token = tokens[index];
         if (token.type === 'inline' && token.children) {
-            token.children.forEach((t) => {
+            token.children.forEach(t => {
                 var _a, _b;
                 if (t.type === 'link_open') {
                     const target = env.targets[(_a = t.attrGet('href')) !== null && _a !== void 0 ? _a : ''];
@@ -123,7 +123,9 @@ const updateLinkHrefs = (state) => {
     return true;
 };
 function plugin(md) {
-    md.block.ruler.before('hr', 'myst_blocks', blocks, { alt: ['paragraph', 'reference', 'blockquote', 'list', 'footnote_def'] });
+    md.block.ruler.before('hr', 'myst_blocks', blocks, {
+        alt: ['paragraph', 'reference', 'blockquote', 'list', 'footnote_def']
+    });
     md.core.ruler.after('block', 'add_block_titles', addBlockTitles);
     md.core.ruler.after('inline', 'update_link_hrefs', updateLinkHrefs);
     md.renderer.rules.myst_target = renderTarget;

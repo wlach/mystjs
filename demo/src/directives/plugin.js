@@ -42,7 +42,7 @@ const directiveContainer = (directives) => ({
         const htmlTemplate = directive.renderer(args, opts, target, tokens, idx, options, env, self);
         const [before, after] = utils_1.toHTML(htmlTemplate);
         return token.nesting === 1 ? before : after;
-    },
+    }
 });
 /**
  * This overrides the `fence` when `skipParsing` is set to true on a directive.
@@ -59,7 +59,7 @@ const fenceRenderer = (directives) => (tokens, idx, options, env, self) => {
     const [before, after] = utils_1.toHTML(htmlTemplate);
     return `${before}${token.content}${after}`;
 };
-const setDirectiveKind = (directives) => (state) => {
+const setDirectiveKind = (directives) => state => {
     var _a, _b;
     const { tokens } = state;
     let kind = false;
@@ -92,7 +92,7 @@ const setDirectiveKind = (directives) => (state) => {
     }
     return true;
 };
-const parseArguments = (directives) => (state) => {
+const parseArguments = (directives) => state => {
     var _a, _b, _c, _d;
     const { tokens } = state;
     let parent = false;
@@ -137,7 +137,7 @@ const parseArguments = (directives) => (state) => {
     }
     return true;
 };
-const numbering = (directives) => (state) => {
+const numbering = (directives) => state => {
     var _a;
     const { tokens } = state;
     for (let index = 0; index < tokens.length; index += 1) {

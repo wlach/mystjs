@@ -18,11 +18,11 @@ const figure = {
         token: 'figure',
         numbered: state_1.TargetKind.figure,
         autoNumber: true,
-        getArguments: (info) => {
+        getArguments: info => {
             const args = { src: info.trim() };
             return { args, content: '' };
         },
-        getOptions: (data) => {
+        getOptions: data => {
             const { name } = data, rest = __rest(data, ["name"]);
             utils_1.unusedOptionsWarning('figure', rest);
             return { name };
@@ -31,12 +31,13 @@ const figure = {
             const { src } = args;
             const { id, number } = target !== null && target !== void 0 ? target : {};
             return [
-                'figure', { id, class: 'numbered' },
+                'figure',
+                { id, class: 'numbered' },
                 ['img', { src }],
-                ['figcaption', { number }, 0],
+                ['figcaption', { number }, 0]
             ];
-        },
-    },
+        }
+    }
 };
 exports.default = figure;
 //# sourceMappingURL=figure.js.map

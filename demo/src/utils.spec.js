@@ -14,19 +14,21 @@ describe('Utils', () => {
 describe('toHTML', () => {
     it('Converts a tag schema to a string', () => {
         const [a, b] = utils_1.toHTML([
-            'figure', { hi: '1' },
+            'figure',
+            { hi: '1' },
             ['img', { src: '2' }],
-            ['figcaption', { number: '3' }, 0],
+            ['figcaption', { number: '3' }, 0]
         ]);
         expect(a).toBe('<figure hi="1">\n<img src="2">\n<figcaption number="3">\n');
         expect(b).toBe('</figcaption>\n</figure>\n');
     });
     it('Raises errors on multiple holes', () => {
         expect(() => utils_1.toHTML([
-            'figure', { hi: '1' },
+            'figure',
+            { hi: '1' },
             0,
             ['img', { src: '2' }],
-            ['figcaption', { number: '3' }, 0],
+            ['figcaption', { number: '3' }, 0]
         ])).toThrow();
     });
 });

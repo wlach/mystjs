@@ -1,5 +1,7 @@
 import { Directive } from './types';
-export declare type Args = {};
+export declare type Args = {
+    [key: string]: any;
+};
 export declare type Opts = {
     name: string;
 };

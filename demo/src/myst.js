@@ -31,7 +31,7 @@ exports.defaultOptions = {
     directives: directives_1.directives,
     roles: roles_1.roles,
     math: true,
-    markdownit: { html: false },
+    markdownit: { html: false }
 };
 function MyST(opts = exports.defaultOptions) {
     const tokenizer = markdown_it_1.default('commonmark', opts.markdownit);

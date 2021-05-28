@@ -39,7 +39,8 @@ const addRenderers = (roles) => (md) => {
 };
 const mystRole = (roles) => (state, silent) => {
     // Check if the role is escaped
-    if (state.src.charCodeAt(state.pos - 1) === 0x5C) { /* \ */
+    if (state.src.charCodeAt(state.pos - 1) === 0x5c) {
+        /* \ */
         // TODO: this could be improved in the case of edge case '\\{'
         return false;
     }

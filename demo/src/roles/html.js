@@ -16,22 +16,26 @@ const roles = {
             const token = tokens[idx];
             const [html] = utils_1.toHTML(['abbr', { title: token.attrGet('title'), children: token.content }], { inline: true });
             return html;
-        },
+        }
     },
     sub: {
         token: 'sub',
         renderer: (tokens, idx) => {
-            const [html] = utils_1.toHTML(['sub', { children: tokens[idx].content }], { inline: true });
+            const [html] = utils_1.toHTML(['sub', { children: tokens[idx].content }], {
+                inline: true
+            });
             return html;
-        },
+        }
     },
     sup: {
         token: 'sup',
         renderer: (tokens, idx) => {
-            const [html] = utils_1.toHTML(['sup', { children: tokens[idx].content }], { inline: true });
+            const [html] = utils_1.toHTML(['sup', { children: tokens[idx].content }], {
+                inline: true
+            });
             return html;
-        },
-    },
+        }
+    }
 };
 exports.default = roles;
 //# sourceMappingURL=html.js.map

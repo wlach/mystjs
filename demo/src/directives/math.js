@@ -19,7 +19,7 @@ const math = {
         numbered: state_1.TargetKind.equation,
         skipParsing: true,
         getArguments: () => ({ args: {}, content: '' }),
-        getOptions: (data) => {
+        getOptions: data => {
             // See https://github.com/sphinx-doc/sphinx/issues/8476
             const { name, label } = data, rest = __rest(data, ["name", "label"]);
             utils_1.unusedOptionsWarning('math', rest);
@@ -27,13 +27,17 @@ const math = {
         },
         renderer: (args, opts, target) => {
             const { id, number } = target !== null && target !== void 0 ? target : {};
-            return ['div', {
+            return [
+                'div',
+                {
                     class: target ? ['math', 'numbered'] : 'math',
                     id,
-                    number,
-                }, 0];
-        },
-    },
+                    number
+                },
+                0
+            ];
+        }
+    }
 };
 exports.default = math;
 //# sourceMappingURL=math.js.map

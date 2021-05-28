@@ -52,7 +52,7 @@ function addDirectiveOptions(directive, parent, tokens, index, isFence = false) 
     if (!isFence && close && noContent)
         close.hidden = true;
 }
-const parseOptions = (directives) => (state) => {
+const parseOptions = (directives) => state => {
     var _a, _b;
     const { tokens } = state;
     let parent = false;

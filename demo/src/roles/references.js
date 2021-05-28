@@ -5,11 +5,12 @@ const utils_1 = require("../utils");
 const REF_PATTERN = /^(.+?)<([^<>]+)>$/; // e.g. 'Labeled Reference <ref>'
 const renderReferenceError = (ref) => {
     const [html] = utils_1.toHTML([
-        'span', {
+        'span',
+        {
             class: 'error',
             title: `The reference '${ref}' was not found.`,
-            children: `Reference '${ref}' not found.`,
-        },
+            children: `Reference '${ref}' not found.`
+        }
     ], { inline: true });
     return html;
 };
@@ -23,7 +24,7 @@ const renderReference = (opts) => (tokens, idx, options, env) => {
     const target = env.targets[ref];
     if (!target || (opts.kind && (target === null || target === void 0 ? void 0 : target.kind) !== opts.kind))
         return renderReferenceError(ref);
-    const { id, title, defaultReference, number, } = target;
+    const { id, title, defaultReference, number } = target;
     let text = token.content || title || defaultReference;
     if (opts.numbered) {
         // See https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-numref
@@ -33,11 +34,12 @@ const renderReference = (opts) => (tokens, idx, options, env) => {
         text = `${token.content}(${number})`;
     }
     const [html] = utils_1.toHTML([
-        'a', {
+        'a',
+        {
             href: `#${id}`,
             title: title || defaultReference,
-            children: text,
-        },
+            children: text
+        }
     ], { inline: true });
     return html;
 };
@@ -52,18 +54,22 @@ const roles = {
     ref: {
         token: 'ref',
         getAttrs: getReferenceAttrs,
-        renderer: renderReference({ numbered: false, brackets: false }),
+        renderer: renderReference({ numbered: false, brackets: false })
     },
     numref: {
         token: 'numref',
         getAttrs: getReferenceAttrs,
-        renderer: renderReference({ numbered: true, brackets: false }),
+        renderer: renderReference({ numbered: true, brackets: false })
     },
     eq: {
         token: 'eq',
         getAttrs: getReferenceAttrs,
-        renderer: renderReference({ numbered: true, brackets: true, kind: state_1.TargetKind.equation }),
-    },
+        renderer: renderReference({
+            numbered: true,
+            brackets: true,
+            kind: state_1.TargetKind.equation
+        })
+    }
 };
 exports.default = roles;
 //# sourceMappingURL=references.js.map

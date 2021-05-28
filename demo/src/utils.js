@@ -13,7 +13,23 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toHTML = exports.formatTag = void 0;
 const utils_1 = require("markdown-it/lib/common/utils");
-const HTML_EMPTY_ELEMENTS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const HTML_EMPTY_ELEMENTS = new Set([
+    'area',
+    'base',
+    'br',
+    'col',
+    'embed',
+    'hr',
+    'img',
+    'input',
+    'keygen',
+    'link',
+    'meta',
+    'param',
+    'source',
+    'track',
+    'wbr'
+]);
 const formatAttr = (key, value) => {
     let v;
     if (value == null)
@@ -40,7 +56,7 @@ function formatTag(tag, attributes, inline) {
     const attrs = Object.entries(rest)
         .filter(([, value]) => value != null && value !== false)
         .map(([key, value]) => formatAttr(key, value))
-        .filter((value) => value != null)
+        .filter(value => value != null)
         .join(' ');
     const html = `<${utils_1.escapeHtml(tag)}${attrs ? ` ${attrs}` : ''}>`;
     if (children)
@@ -52,7 +68,7 @@ function toHTMLRecurse(template, inline) {
     // Convert to an internal type which is actually an array
     const T = template;
     // Cannot have more than one hole in the template
-    const atMostOneHole = T.flat(Infinity).filter((v) => v === 0).length <= 1;
+    const atMostOneHole = T.flat(Infinity).filter(v => v === 0).length <= 1;
     if (!atMostOneHole)
         throw new Error('There cannot be more than one hole in the template.');
     // Grab the tag and attributes if they exist!
@@ -64,7 +80,7 @@ function toHTMLRecurse(template, inline) {
     const after = [];
     before.push(formatTag(tag, attrs, inline));
     let foundHole = false;
-    T.slice(hasAttrs ? 2 : 1).forEach((value) => {
+    T.slice(hasAttrs ? 2 : 1).forEach(value => {
         const v = value;
         if (v === 0) {
             foundHole = true;

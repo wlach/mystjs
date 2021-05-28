@@ -13,20 +13,29 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = require("./utils");
 const admonitionTitles = {
-    attention: 'Attention', caution: 'Caution', danger: 'Danger', error: 'Error', important: 'Important', hint: 'Hint', note: 'Note', seealso: 'See Also', tip: 'Tip', warning: 'Warning',
+    attention: 'Attention',
+    caution: 'Caution',
+    danger: 'Danger',
+    error: 'Error',
+    important: 'Important',
+    hint: 'Hint',
+    note: 'Note',
+    seealso: 'See Also',
+    tip: 'Tip',
+    warning: 'Warning'
 };
 const DEFAULT_ADMONITION_CLASS = 'note';
 const createAdmonition = (kind) => {
     const className = kind === 'admonition' ? DEFAULT_ADMONITION_CLASS : kind;
     return {
         token: kind,
-        getArguments: (info) => {
+        getArguments: info => {
             const content = kind === 'admonition' ? '' : info;
             const title = kind === 'admonition' ? info : admonitionTitles[kind];
             const args = { title };
             return { args, content };
         },
-        getOptions: (data) => {
+        getOptions: data => {
             const { class: overrideClass } = data, rest = __rest(data, ["class"]);
             utils_1.unusedOptionsWarning(kind, rest);
             return { class: overrideClass };
@@ -35,11 +44,12 @@ const createAdmonition = (kind) => {
             const { title } = args;
             const { class: overrideClass } = opts;
             return [
-                'aside', { class: ['callout', overrideClass || className] },
+                'aside',
+                { class: ['callout', overrideClass || className] },
                 ['header', { children: title }],
-                0,
+                0
             ];
-        },
+        }
     };
 };
 const admonitions = {
@@ -55,7 +65,7 @@ const admonitions = {
     note: createAdmonition('note'),
     seealso: createAdmonition('seealso'),
     tip: createAdmonition('tip'),
-    warning: createAdmonition('warning'),
+    warning: createAdmonition('warning')
 };
 exports.default = admonitions;
 //# sourceMappingURL=admonition.js.map

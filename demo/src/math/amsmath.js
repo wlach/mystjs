@@ -26,7 +26,7 @@ const ENVIRONMENTS = [
     'Vmatrix',
     // eqnarray is another math environment, it is not part of amsmath,
     // and note that it is better to use align or equation+split instead
-    'eqnarray',
+    'eqnarray'
 ];
 // other "non-top-level" environments:
 // 3.4 the split environment is for single equations that are too long to fit on one line
@@ -94,7 +94,9 @@ const renderAmsmathBlock = (tokens, idx) => {
 */
 function amsmathPlugin(md) {
     const { renderer } = md;
-    md.block.ruler.before('blockquote', 'amsmath', amsmathBlock, { alt: ['paragraph', 'reference', 'blockquote', 'list', 'footnote_def'] });
+    md.block.ruler.before('blockquote', 'amsmath', amsmathBlock, {
+        alt: ['paragraph', 'reference', 'blockquote', 'list', 'footnote_def']
+    });
     renderer.rules.amsmath = renderAmsmathBlock;
 }
 exports.default = amsmathPlugin;
