@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CommonMark</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/myst-demo.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo-square.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Admonitions" href="admonitions.html" />
+    <link rel="prev" title="Overview" href="overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo-wide.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MyST Spec
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   CommonMark
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="admonitions.html">
+   Admonitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="figures.html">
+   Figures &amp; Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tables.html">
+   Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="math.html">
+   Math &amp; Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References &amp; Links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="citations.html">
+   Citations &amp; Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="blocks.html">
+   Blocks &amp; Comments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="extensions.html">
+   Extensions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic.html">
+     HTML Roles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="footnotes.html">
+     Footnotes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="definitions.html">
+     Definition lists
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using the mystjs Library
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../consuming/basic.html">
+   Basic Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../consuming/mdast.html">
+   Understanding MyST mdast
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../consuming/advanced.html">
+   Advanced
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extending MyST with mystjs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extending/roles.html">
+   New Roles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extending/directives.html">
+   New Directives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extending/advanced.html">
+   Advanced
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/features/commonmark.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/markdown-it-myst"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/markdown-it-myst/issues/new?title=Issue%20on%20page%20%2Ffeatures/commonmark.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#block-markup">
+   Block Markup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#headings">
+     Headings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code">
+     Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quotes">
+     Quotes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thematic-break">
+     Thematic Break
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#link-definitions">
+     Link Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paragraph">
+     Paragraph
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valid-html">
+     Valid HTML
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inline-markup">
+   Inline Markup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-links">
+     Inline links
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-images">
+     Inline images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-formatting">
+     Text formatting
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>CommonMark</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#block-markup">
+   Block Markup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#headings">
+     Headings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code">
+     Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quotes">
+     Quotes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thematic-break">
+     Thematic Break
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#link-definitions">
+     Link Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paragraph">
+     Paragraph
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valid-html">
+     Valid HTML
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inline-markup">
+   Inline Markup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-links">
+     Inline links
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inline-images">
+     Inline images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-formatting">
+     Text formatting
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="commonmark">
+<h1>CommonMark<a class="headerlink" href="#commonmark" title="Permalink to this headline">¶</a></h1>
+<p>This page provides an overview of the types of block and inline markup features supported by CommonMark and MyST, with pointers to additional content of interest. For full details on all the nuance of these features, please look at the <a class="reference external" href="https://spec.commonmark.org/">CommonMark Spec documentation</a>.</p>
+<p>MyST (Markedly Structured Text) was designed to make it easier to create publishable computational documents written with Markdown notation. It is a superset of <a class="reference external" href="https://commonmark.org/">CommonMark Markdown</a> and draws heavy inspiration from <a class="reference external" href="https://rmarkdown.rstudio.com/">RMarkdown</a> syntax. In addition to CommonMark, MyST also implements and extends <a class="reference external" href="https://github.com/syntax-tree/mdast">mdast</a>, which is a standard abstract syntax tree for Markdown. <code class="docutils literal notranslate"><span class="pre">mdast</span></code> is part of the <a class="reference external" href="https://unifiedjs.com">unifiedjs</a> community and has <a class="reference external" href="https://unifiedjs.com/explore/keyword/mdast/">many utilities</a> for exporting and transforming your content.</p>
+<div class="section" id="block-markup">
+<h2>Block Markup<a class="headerlink" href="#block-markup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="headings">
+<h3>Headings<a class="headerlink" href="#headings" title="Permalink to this headline">¶</a></h3>
+<p>Markdown syntax denotes headers starting with between 1 to 6 <code class="docutils literal notranslate"><span class="pre">#</span></code>.
+For example, a level 3 header looks like:</p>
+<myst-demo>
+### Heading Level 3
+
+Try changing the number of `#`s to change the `depth`.
+</myst-demo><p>An alternative syntax (called setext) is also supported for level 1 and 2 headers,
+by underlining using multiple <code class="docutils literal notranslate"><span class="pre">===</span></code> or <code class="docutils literal notranslate"><span class="pre">---</span></code>. For example:</p>
+<myst-demo>
+Heading 1
+=========
+
+Heading 2
+---------
+</myst-demo><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Reference headings by preceding headers with a <code class="docutils literal notranslate"><span class="pre">(label)=</span></code>. See <a class="reference internal" href="references.html"><span class="doc std std-doc">References &amp; Links</span></a>!</p>
+</div>
+</div>
+<div class="section" id="lists">
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<p>Bullet points:</p>
+<myst-demo>
+- headings
+- lists
+  - bullets
+  - numbers
+- code blocks
+</myst-demo><p>Numbered items:</p>
+<myst-demo>
+1. quotes
+2. breaks
+3. links
+</myst-demo></div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p>Code blocks are enclosed in 3 or more <code class="docutils literal notranslate"><span class="pre">`</span></code> or <code class="docutils literal notranslate"><span class="pre">~</span></code> with an optional language name.</p>
+<myst-demo>
+```python
+print('this is python')
+```
+</myst-demo><p>Indented paragraphs are also treated as literal text. This may be used for code or other preformatted text.</p>
+<myst-demo>
+Some JSON:
+
+    {
+      'literal': '*text*'
+    }
+</myst-demo><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Create code-blocks with additional highlighting using the <code class="docutils literal notranslate"><span class="pre">code-block</span></code> directive. See more here!</p>
+</div>
+</div>
+<div class="section" id="quotes">
+<h3>Quotes<a class="headerlink" href="#quotes" title="Permalink to this headline">¶</a></h3>
+<p>Quote blocks are prepended with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>:</p>
+<myst-demo>
+> Super profound quote
+</myst-demo></div>
+<div class="section" id="thematic-break">
+<h3>Thematic Break<a class="headerlink" href="#thematic-break" title="Permalink to this headline">¶</a></h3>
+<p>Create a horizontal line in the output</p>
+<myst-demo>
+Section 1
+
+---
+
+Section 2
+</myst-demo><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Thematic breaks should not be confused with MyST <a class="reference internal" href="blocks.html"><span class="doc std std-doc">block syntax</span></a>,
+which is used to structurally seperate content.</p>
+</div>
+</div>
+<div class="section" id="link-definitions">
+<h3>Link Definitions<a class="headerlink" href="#link-definitions" title="Permalink to this headline">¶</a></h3>
+<p>Links may be defined outside of text with a reference target (no spaces) and an optional title.</p>
+<myst-demo>
+[This is a link defined elsewhere!][key]
+
+[key]: https://www.google.com 'a title'
+</myst-demo><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>These can be used in <a class="reference internal" href="#inline-links"><span class="std std-ref">Inline links</span></a> and are similar to <a class="reference internal" href="references.html"><span class="doc std std-doc">References &amp; Links</span></a> in MyST.
+This syntax is also similar to <a class="reference internal" href="footnotes.html"><span class="doc std std-doc">Footnotes</span></a>.</p>
+</div>
+</div>
+<div class="section" id="paragraph">
+<h3>Paragraph<a class="headerlink" href="#paragraph" title="Permalink to this headline">¶</a></h3>
+<p>Any text that does not belong to another block is simply a paragraph:</p>
+<myst-demo>
+any _text_
+</myst-demo></div>
+<div class="section" id="valid-html">
+<h3>Valid HTML<a class="headerlink" href="#valid-html" title="Permalink to this headline">¶</a></h3>
+<p>Any valid HTML may also be included in a MyST document and rendered to HTML. However, you must set the option <code class="docutils literal notranslate"><span class="pre">allowDangerousHtml:</span> <span class="pre">true</span></code> in the MyST parser.</p>
+</div>
+</div>
+<div class="section" id="inline-markup">
+<h2>Inline Markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inline-links">
+<span id="id1"></span><h3>Inline links<a class="headerlink" href="#inline-links" title="Permalink to this headline">¶</a></h3>
+<p>Auto-link where link itself is shown in final output:</p>
+<myst-demo>
+Search engine: <https://www.google.com>
+</myst-demo><p>Link with alternative text and optional title:</p>
+<myst-demo>
+[search engine](https://www.google.com "Google")
+</myst-demo><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="references.html"><span class="doc std std-doc">References &amp; Links</span></a> provides other ways to reference inline content.</p>
+</div>
+</div>
+<div class="section" id="inline-images">
+<h3>Inline images<a class="headerlink" href="#inline-images" title="Permalink to this headline">¶</a></h3>
+<p>Link to an image can be done similar to other inline links, or you may use HTML syntax to include image size, etc.</p>
+<myst-demo>
+![alt](https://source.unsplash.com/random/500x200/?fruit "title")
+</myst-demo><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="figures.html"><span class="doc std std-doc">Figures &amp; Images</span></a> provides other ways to size, label, and caption images.</p>
+</div>
+</div>
+<div class="section" id="text-formatting">
+<h3>Text formatting<a class="headerlink" href="#text-formatting" title="Permalink to this headline">¶</a></h3>
+<p>Standard inline formatting including bold, italic, code, as well as escaped symbols and line breaks:</p>
+<myst-demo>
+**strong**, _emphasis_, `literal text`, \*escaped symbols\*, a hard\
+break
+</myst-demo><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="basic.html"><span class="doc std std-doc">HTML Roles</span></a> provides other roles for subscript, superscript, abbeviations, and other text formating.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./features"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Overview</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="admonitions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Admonitions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book Community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

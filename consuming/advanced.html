@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/myst-demo.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo-square.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="New Roles" href="../extending/roles.html" />
+    <link rel="prev" title="Understanding MyST mdast" href="mdast.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo-wide.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MyST Spec
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/commonmark.html">
+   CommonMark
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/admonitions.html">
+   Admonitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/figures.html">
+   Figures &amp; Images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/tables.html">
+   Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/math.html">
+   Math &amp; Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/references.html">
+   References &amp; Links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/citations.html">
+   Citations &amp; Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../features/blocks.html">
+   Blocks &amp; Comments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../features/extensions.html">
+   Extensions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../features/basic.html">
+     HTML Roles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../features/footnotes.html">
+     Footnotes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../features/definitions.html">
+     Definition lists
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using the mystjs Library
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="basic.html">
+   Basic Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mdast.html">
+   Understanding MyST mdast
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Advanced
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extending MyST with mystjs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extending/roles.html">
+   New Roles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extending/directives.html">
+   New Directives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extending/advanced.html">
+   Advanced
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/consuming/advanced.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/markdown-it-myst"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/markdown-it-myst/issues/new?title=Issue%20on%20page%20%2Fconsuming/advanced.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-mystjs">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     mystjs
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developer-install">
+   Developer Install
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-json-scripts">
+   package.json scripts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typescript">
+   Typescript
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-targets">
+   Build Targets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests">
+   Tests
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Advanced</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-mystjs">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     mystjs
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developer-install">
+   Developer Install
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-json-scripts">
+   package.json scripts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typescript">
+   Typescript
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-targets">
+   Build Targets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests">
+   Tests
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="advanced">
+<h1>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h1>
+<p>Library structure:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>src/
+├── blocks.ts           <span class="c1"># Block level rules</span>
+├── directives          <span class="c1"># All directives</span>
+│   ├── index.ts        <span class="c1"># { plugin, directives } a dictionary of the default directives</span>
+│   ├── admonition.ts   <span class="c1"># Admonition directives</span>
+│   ├── figure.ts       <span class="c1"># Figure directive</span>
+│   └── ...
+└── roles               <span class="c1"># All roles</span>
+    ├── index.ts        <span class="c1"># { plugin, roles }, a dictionary of the default roles</span>
+    ├── html.ts         <span class="c1"># HTML roles, like abbr, sub, sup ...</span>
+    ├── math.ts         <span class="c1"># Math role</span>
+    └── ...
+├── index.ts            <span class="c1"># Exports `MyST()` and default roles/directives</span>
+├── state.ts            <span class="c1"># Handles reference numbering</span>
+└── utils.ts
+</pre></div>
+</div>
+<div class="section" id="using-mystjs">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">mystjs</span></code><a class="headerlink" href="#using-mystjs" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to use the library, you can use the <code class="docutils literal notranslate"><span class="pre">MyST</span></code> wrapper,
+which creates a <code class="docutils literal notranslate"><span class="pre">MarkdownIt</span></code> tokenizer for you:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">MyST</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;mystjs&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">myst</span> <span class="o">=</span> <span class="nx">MyST</span><span class="p">();</span> <span class="c1">// Can override options here!</span>
+<span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">myst</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">myString</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, you can use this with other packages in a more granular way:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">plugins</span><span class="p">,</span> <span class="nx">roles</span><span class="p">,</span> <span class="nx">directives</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;mystjs&#39;</span><span class="p">;</span>
+
+<span class="c1">// Somewhere create a markdownit tokenizer:</span>
+<span class="kd">const</span> <span class="nx">tokenizer</span> <span class="o">=</span> <span class="nx">MarkdownIt</span><span class="p">(</span><span class="s1">&#39;commonmark&#39;</span><span class="p">);</span>
+
+<span class="c1">// Later:</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">math</span><span class="p">);</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">blocks</span><span class="p">);</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">directives</span><span class="p">(</span><span class="nx">directives</span><span class="p">));</span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">roles</span><span class="p">(</span><span class="nx">roles</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="developer-install">
+<h2>Developer Install<a class="headerlink" href="#developer-install" title="Permalink to this headline">¶</a></h2>
+<p>For installing the package locally, you will need <a class="reference external" href="https://nodejs.org/">node</a> and <a class="reference external" href="https://docs.npmjs.com/about-npm">npm</a>, both can use a global install on your system.</p>
+<p>Once you have <code class="docutils literal notranslate"><span class="pre">npm</span></code> installed globally, navigate into this project folder and install the dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mystjs
+npm install
+npm run start  <span class="c1"># Start a development server to play with the library! 🚀</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-json-scripts">
+<h2>package.json scripts<a class="headerlink" href="#package-json-scripts" title="Permalink to this headline">¶</a></h2>
+<p>The scripts for building, testing, and serving the project are in the <span class="xref myst">package.json</span>, the main ones to use are <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">build</span></code>, and <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">start</span></code>.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">build</span></code> builds the library, including compiling the typescript and bundling/minification to create <code class="docutils literal notranslate"><span class="pre">myst.min.js</span></code>.
+This outputs to the <code class="docutils literal notranslate"><span class="pre">dist</span></code> folder, and also includes all type definitions (<code class="docutils literal notranslate"><span class="pre">*.d.ts</span></code>).</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">test</span></code> runs the tests, these are mostly based on the <span class="xref myst">fixtures</span> folder. You can also use <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">test:watch</span></code> to run on any file changes.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">start</span></code> starts a server for manually testing and playing with <code class="docutils literal notranslate"><span class="pre">mystjs</span></code>, this uses a in-memory bundle of what would go in the <code class="docutils literal notranslate"><span class="pre">dist</span></code> folder.
+Note that this does not actually build the library!</p>
+</div>
+<div class="section" id="typescript">
+<h2>Typescript<a class="headerlink" href="#typescript" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mystjs</span></code> uses Typescript in <code class="docutils literal notranslate"><span class="pre">strict</span></code> mode and <code class="docutils literal notranslate"><span class="pre">noImplicitAny</span></code>. The types are distributed with the package.</p>
+</div>
+<div class="section" id="build-targets">
+<h2>Build Targets<a class="headerlink" href="#build-targets" title="Permalink to this headline">¶</a></h2>
+<p>The package create a <code class="docutils literal notranslate"><span class="pre">dist</span></code> folder and transpiles all code from Typescript to Javascript.
+The main library can run in both the browser and in node, however, another file <code class="docutils literal notranslate"><span class="pre">myst.ts</span></code> is
+used to attached the global <code class="docutils literal notranslate"><span class="pre">MyST</span></code> variable to the <code class="docutils literal notranslate"><span class="pre">window</span></code>. This file <code class="docutils literal notranslate"><span class="pre">myst.min.js</span></code>
+is what should be distributed when using scripts in HTML.</p>
+<p>Otherwise you should be using standard imports or requires in your node environment.</p>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>The major tests that are run are against the <code class="docutils literal notranslate"><span class="pre">fixtures</span></code> directory that compare the md to the expected html output.</p>
+<p>These have the format:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>.
+Testing abbriviations in MyST markdown
+.
+This is markdown with {abbr}`MyST (Markedly reStructured Text)`!!
+.
+
+&lt;p&gt;This is markdown with &lt;abbr title=&quot;Markedly reStructured Text&quot;&gt;MyST&lt;/abbr&gt;!!&lt;/p&gt;
+.
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./consuming"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="mdast.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Understanding MyST mdast</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../extending/roles.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">New Roles</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book Community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
