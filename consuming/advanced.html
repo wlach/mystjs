@@ -424,22 +424,22 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Using <code class="docutils literal notranslate"><span class="pre">mystjs</span></code><a class="headerlink" href="#using-mystjs" title="Permalink to this headline">¶</a></h2>
 <p>There are two ways to use the library, you can use the <code class="docutils literal notranslate"><span class="pre">MyST</span></code> wrapper,
 which creates a <code class="docutils literal notranslate"><span class="pre">MarkdownIt</span></code> tokenizer for you:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">MyST</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;mystjs&#39;</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">myst</span> <span class="o">=</span> <span class="nx">MyST</span><span class="p">();</span> <span class="c1">// Can override options here!</span>
-<span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">myst</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">myString</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">MyST</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;mystjs&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">myst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MyST</span><span class="p">();</span><span class="w"> </span><span class="c1">// Can override options here!</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myst</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">myString</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Alternatively, you can use this with other packages in a more granular way:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">plugins</span><span class="p">,</span> <span class="nx">roles</span><span class="p">,</span> <span class="nx">directives</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;mystjs&#39;</span><span class="p">;</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">plugins</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="p">,</span><span class="w"> </span><span class="nx">directives</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;mystjs&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="c1">// Somewhere create a markdownit tokenizer:</span>
-<span class="kd">const</span> <span class="nx">tokenizer</span> <span class="o">=</span> <span class="nx">MarkdownIt</span><span class="p">(</span><span class="s1">&#39;commonmark&#39;</span><span class="p">);</span>
+<span class="c1">// Somewhere create a markdownit tokenizer:</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tokenizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MarkdownIt</span><span class="p">(</span><span class="s1">&#39;commonmark&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// Later:</span>
-<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">math</span><span class="p">);</span>
-<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">blocks</span><span class="p">);</span>
-<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">directives</span><span class="p">(</span><span class="nx">directives</span><span class="p">));</span>
-<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">roles</span><span class="p">(</span><span class="nx">roles</span><span class="p">));</span>
+<span class="c1">// Later:</span><span class="w"></span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">math</span><span class="p">);</span><span class="w"></span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">blocks</span><span class="p">);</span><span class="w"></span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">directives</span><span class="p">(</span><span class="nx">directives</span><span class="p">));</span><span class="w"></span>
+<span class="nx">tokenizer</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">roles</span><span class="p">(</span><span class="nx">roles</span><span class="p">));</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
